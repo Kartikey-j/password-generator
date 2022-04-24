@@ -1,34 +1,49 @@
-function generatePassword(){
-    const characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@!#$%^&*()_+=-~`";
-    const charactersLength = characters.length;
+const characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@!#$%^&*()_+=-~`";
 
+function firstPass(){
 let result = "";
-
-    for (let i = 0; i<16; i++ ){
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
+for (let i = 0; i<12; i++ ){
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    } 
     const firstPassword = document.getElementById("first-password");
     firstPassword.textContent = result;
+    return result
+}
+
+function secondPass(){
+let result = "";
+for (let i = 0; i<14; i++ ){
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    } 
     const secondPassword = document.getElementById("second-password");
     secondPassword.textContent = result;    
+    return result
+    }
+
+function thirdPass(){
+let result = "";
+for (let i = 0; i<15; i++ ){
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }    
     const thirdPassword = document.getElementById("third-password");
     thirdPassword.textContent = result;
+    return result
+    }
+  
+function fourthPass(){
+let result = "";
+for (let i = 0; i<10; i++ ){
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    } 
     const fourthPassword = document.getElementById("fourth-password");
-    fourthPassword.textContent = result;    
-} 
+    fourthPassword.textContent = result; 
+    return result
+    }
 
-function clearText(){
-    const firstPassword = document.getElementById("first-password");
-    firstPassword.replaceChildren( );
-    const secondPassword = document.getElementById("second-password");
-    secondPassword.replaceChildren( );    
-    const thirdPassword = document.getElementById("third-password");
-    thirdPassword.replaceChildren( );
-    const fourthPassword = document.getElementById("fourth-password");
-    fourthPassword.replaceChildren( );   
-}
 const generateBtn = document.getElementById("generate-password");
 generateBtn.addEventListener("click", function finalOutput(){
-   clearText()
-   generatePassword()
+  firstPass()
+  secondPass()
+  thirdPass()
+  fourthPass()
 })
